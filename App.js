@@ -1,11 +1,13 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import ArticlesList from "./src/components/articles/ArticlesList";
+import Header from "./src/components/layouts/Header";
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <Header />
         <ArticlesList />
       </View>
     );
