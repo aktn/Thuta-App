@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, FlatList, Image } from "react-native";
+import { ScrollView, StyleSheet, FlatList, Image, Text } from "react-native";
 
 const books = [
   {
@@ -46,6 +46,7 @@ class ArticlesList extends Component {
   render() {
     return (
       <ScrollView>
+        <Text style={styles.text}>New</Text>
         <FlatList
           horizontal
           style={{ marginHorizontal: 5 }}
@@ -68,6 +69,12 @@ const styles = StyleSheet.create({
     width: 120,
     height: 180,
     margin: 5
+  },
+  text: {
+    color: "black",
+    fontSize: 20,
+    paddingLeft: 10,
+    paddingBottom: 10
   }
 });
 export default ArticlesList;

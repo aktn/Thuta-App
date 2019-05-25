@@ -13,7 +13,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "flex-end",
     alignItems: "flex-end",
-    margin: 20,
+    marginTop: 20,
+    marginBottom: 10,
+    marginRight: 20,
     height: 60
   }
 });
