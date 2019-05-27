@@ -4,15 +4,17 @@ import ArticlesList from "./src/components/articles/ArticlesList";
 import Header from "./src/components/layouts/Header";
 import Slide from "./src/components/UI/slider/Slider";
 import CategoriesList from "./src/components/categories/CategoriesList";
+import SearchBar from "./src/components/UI/search/SearchBar";
 
 export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
+        {/* <Header />
         <Slide />
         <CategoriesList />
-        <ArticlesList />
+        <ArticlesList /> */}
+        <SearchBar />
       </View>
     );
   }
