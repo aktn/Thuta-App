@@ -25,7 +25,8 @@ const styles = {
   slider: {
     flex: 1,
     flexDirection: "row",
-    width: "100%"
+    width: "100%",
+    flexWrap: "wrap"
   },
   image: {
     backgroundColor: "#464646"

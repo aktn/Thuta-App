@@ -60,11 +60,6 @@ class ArticlesList extends Component {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
   horizontal: {
     width: 120,
     height: 180,
@@ -73,8 +68,8 @@ const styles = StyleSheet.create({
   text: {
     color: "black",
     fontSize: 20,
-    paddingLeft: 10,
-    paddingBottom: 10
+    paddingVertical: 20,
+    paddingHorizontal: 10
   }
 });
 export default ArticlesList;
