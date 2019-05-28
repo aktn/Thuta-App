@@ -1,28 +1,21 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import ArticlesList from "./src/components/articles/ArticlesList";
-import Header from "./src/components/layouts/Header";
-import Slide from "./src/components/UI/slider/Slider";
-import CategoriesList from "./src/components/categories/CategoriesList";
+import HomeScreen from "./src/components/home/HomeScreen";
+import { createStackNavigator, createAppContainer } from "react-navigation";
 import SearchBar from "./src/components/UI/search/SearchBar";
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        {/* <Header />
-        <Slide />
-        <CategoriesList />
-        <ArticlesList /> */}
-        <SearchBar />
-      </View>
-    );
+const MainNavigator = createStackNavigator(
+  {
+    Home: { screen: HomeScreen },
+    Search: { screen: SearchBar }
+  },
+  {
+    initialRouteName: "Home",
+    defaultNavigationOptions: {
+      header: null
+    }
   }
-}
+);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fffbe6"
-  }
-});
+const App = createAppContainer(MainNavigator);
+
+export default App;
