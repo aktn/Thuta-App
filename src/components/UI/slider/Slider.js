@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, Image, Dimensions } from "react-native";
+import { Text, View, Image } from "react-native";
 import Swiper from "react-native-swiper";
 
 const Slider = props => (
@@ -64,12 +64,7 @@ export default class extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Swiper
-          style={styles.wrapper}
-          height={240}
-          showsPagination={false}
-          autoplay
-        >
+        <Swiper height={240} showsPagination={false} autoplay>
           {this.state.sliders.map((slider, i) => (
             <Slider uri={slider.image} key={i} />
           ))}
