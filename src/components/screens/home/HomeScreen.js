@@ -1,9 +1,9 @@
 import React from "react";
 import { StyleSheet, View } from "react-native";
-import Header from "../layouts/Header";
-import Slide from "../UI/slider/Slider";
-import CategoriesList from "../categories/CategoriesList";
-import ArticlesList from "../articles/ArticlesList";
+import Header from "../../common/layouts/Header";
+import Slide from "../../common/slider/Slider";
+import CategoriesList from "../../common/categories/CategoriesList";
+import ArticlesList from "../../common/articles/ArticlesList";
 
 export default class HomeScreen extends React.Component {
   render() {

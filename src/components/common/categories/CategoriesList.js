@@ -1,26 +1,33 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, FlatList, View, Text } from "react-native";
+import { ScrollView, Image, StyleSheet, FlatList, View, Text } from "react-native";
+import Icon from "react-native-vector-icons/FontAwesome";
+
 
 const categories = [
   {
     name: "Psychology",
-    color: "#edcdc5"
+    color: "#edcdc5",
+  
   },
   {
     name: "Psychology",
-    color: "#eab3c6"
+    color: "#eab3c6",
+    
   },
   {
     name: "Psychology",
-    color: "#bae6b3"
+    color: "#bae6b3",
+    
   },
   {
     name: "Psychology",
-    color: "#eab3c6"
+    color: "#eab3c6",
+  
   },
   {
     name: "Psychology",
-    color: "#bae6b3"
+    color: "#bae6b3",
+   
   }
 ];
 
@@ -32,6 +39,7 @@ class CategoriesList extends Component {
   _renderCategories(category) {
     return (
       <View style={[styles.horizontal, { backgroundColor: category.color }]}>
+        <Icon name="globe" style={styles.icon} size={30} color="grey" />
         <Text style={styles.text}>{category.name}</Text>
       </View>
     );
@@ -58,14 +66,16 @@ const styles = StyleSheet.create({
     width: 140,
     height: 140,
     margin: 5,
-    display: "flex"
+    display: "flex",
+    alignItems: 'center',
+   // justifyContent: 'center',
   },
   heading: {
     color: "#FD5523",
     fontSize: 25,
     fontWeight: "600",
     paddingVertical: 20,
-    paddingHorizontal: 10
+    paddingHorizontal: 10,
   },
   text: {
     fontSize: 25,
@@ -73,6 +83,14 @@ const styles = StyleSheet.create({
     bottom: -5,
     right: 1,
     fontWeight: "400"
+  },
+  icon:{
+  //  textAlign:'center',
+    position: 'absolute',
+    top: 40,
+    backgroundColor: "transparent",
+    zIndex: 1,
+    
   }
 });
 
