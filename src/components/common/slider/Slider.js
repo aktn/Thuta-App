@@ -23,10 +23,10 @@ const styles = {
     height: 240
   },
   slider: {
-    flex: 1,
+    // flex: 1,
     flexDirection: "row",
-    width: "100%",
-    flexWrap: "wrap"
+    width: "100%"
+    // flexWrap: "wrap"
   },
   image: {
     backgroundColor: "#464646"
