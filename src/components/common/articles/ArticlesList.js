@@ -1,11 +1,21 @@
 import React, { Component } from "react";
-import { ScrollView, StyleSheet, FlatList, Image, Text } from "react-native";
+import {
+  ScrollView,
+  StyleSheet,
+  FlatList,
+  Image,
+  Text,
+  TouchableHighlight
+} from "react-native";
 
-const books = [
+const articles = [
   {
     key: 1,
     title: "Suits",
-    image: "https://static.tvmaze.com/uploads/images/medium_portrait/0/2432.jpg"
+    image:
+      "https://static.tvmaze.com/uploads/images/medium_portrait/0/2432.jpg",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum."
   },
   {
     key: 2,
@@ -39,8 +49,20 @@ const books = [
 ];
 
 class ArticlesList extends Component {
-  _renderBooks(book) {
-    return <Image style={styles.horizontal} source={{ uri: book.image }} />;
+  constructor(props) {
+    super(props);
+  }
+
+  _renderArticles(article) {
+    return (
+      <TouchableHighlight
+        onPress={() =>
+          this.props.navigation.navigate("Details", { article: article })
+        }
+      >
+        <Image style={styles.horizontal} source={{ uri: article.image }} />
+      </TouchableHighlight>
+    );
   }
 
   render() {
@@ -50,8 +72,8 @@ class ArticlesList extends Component {
         <FlatList
           horizontal
           style={{ marginHorizontal: 5 }}
-          data={books}
-          renderItem={({ item }) => this._renderBooks(item)}
+          data={articles}
+          renderItem={({ item }) => this._renderArticles(item)}
           keyExtractor={(item, index) => index.toString()}
         />
       </ScrollView>
@@ -61,8 +83,8 @@ class ArticlesList extends Component {
 
 const styles = StyleSheet.create({
   horizontal: {
-    width: 120,
-    height: 180,
+    width: 160,
+    height: 220,
     margin: 5
   },
   text: {

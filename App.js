@@ -4,16 +4,34 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import SearchBar from "./src/components/screens/search/SearchBar";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
+import DetailsArticle from "./src/components/screens/detailsArticle/detailsArticle";
 
 const MainNavigator = createStackNavigator(
   {
-    Home: { screen: HomeScreen },
-    Search: { screen: SearchBar }
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Search: {
+      screen: SearchBar,
+      navigationOptions: {
+        header: null
+      }
+    },
+    Details: {
+      screen: DetailsArticle,
+      navigationOptions: {
+        title: "Details",
+        headerVisible: true
+      }
+    }
   },
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {
-      header: null
+      // header: null
     }
   }
 );

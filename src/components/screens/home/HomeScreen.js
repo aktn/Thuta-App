@@ -8,12 +8,13 @@ import TopPicks from "../../common/topPicks/TopPicks";
 
 export default class HomeScreen extends React.Component {
   render() {
+    //const { navigation } = this.props.navigation;
     return (
       <ScrollView style={styles.container}>
         <Header navigation={this.props.navigation} />
         <Slide />
         <CategoriesList />
-        <ArticlesList />
+        <ArticlesList navigation={this.props.navigation} />
         <TopPicks />
       </ScrollView>
     );
