@@ -83,11 +83,17 @@ class SearchBar extends Component {
    */
   _renderItem(item) {
     return (
-      <View style={{ marginVertical: 5 }}>
-        <Image
-          style={{ width: 120, height: 180 }}
-          source={{ uri: item.image }}
-        />
+      <View style={styles.searchList}>
+        <View style={styles.searchImage}>
+          <Image
+            style={{ width: 120, height: 100 }}
+            source={{ uri: item.image }}
+          />
+        </View>
+        <View style={styles.searchContent}>
+          <Text style={styles.category}>Category</Text>
+          <Text style={styles.description}>{item.title}</Text>
+        </View>
       </View>
     );
   }
@@ -141,11 +147,10 @@ class SearchBar extends Component {
         </View>
         <ScrollView>
           <FlatList
-            style={{ marginHorizontal: 5 }}
+            style={{ marginRight: 5 }}
             data={this.state.items}
             renderItem={({ item }) => this._renderItem(item)}
-            numColumns={3}
-            columnWrapperStyle={{ marginTop: 5, marginLeft: 5 }}
+            keyExtractor={(item, index) => index.toString()}
           />
         </ScrollView>
       </View>
@@ -173,7 +178,7 @@ const styles = StyleSheet.create({
   },
   cancelBtnText: {
     color: "black",
-    fontSize: 16
+    fontSize: 18
   },
   input: {
     fontSize: 15,
@@ -198,9 +203,21 @@ const styles = StyleSheet.create({
     top: 1,
     right: 100
   },
-  image: {
-    marginRight: 5,
-    width: 115,
-    height: 170
-  }
+  searchList: {
+    display: "flex",
+    flexDirection: "row",
+    marginTop: 15
+  },
+  searchImage: {
+    flex: 1
+  },
+  searchContent: {
+    flex: 2,
+    fontSize: 30
+  },
+  category: {
+    paddingBottom: 20,
+    fontWeight: "700"
+  },
+  description: {}
 });
