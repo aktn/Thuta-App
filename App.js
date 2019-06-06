@@ -4,7 +4,7 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 import SearchBar from "./src/components/screens/search/SearchBar";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
-import DetailsArticle from "./src/components/screens/detailsArticle/detailsArticle";
+import ArticlesDetail from "./src/components/screens/articles/articlesDetail/ArticlesDetail";
 
 const MainNavigator = createStackNavigator(
   {
@@ -21,7 +21,7 @@ const MainNavigator = createStackNavigator(
       }
     },
     Details: {
-      screen: DetailsArticle,
+      screen: ArticlesDetail,
       navigationOptions: {
         title: "Details",
         headerVisible: true

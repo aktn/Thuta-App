@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
 
 const { width, height } = Dimensions.get("window");
 
-class DetailsArticle extends Component {
+class ArticlesDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -54,4 +54,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default DetailsArticle;
+export default ArticlesDetail;
