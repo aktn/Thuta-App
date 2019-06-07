@@ -7,6 +7,7 @@ import {
   StyleSheet
 } from "react-native";
 import InputField from "../../common/form/InputField";
+import SquareButton from "../../common/buttons/SquareButton";
 //import { PropTypes } from "prop-types";
 
 class LogIn extends Component {
@@ -47,8 +48,8 @@ class LogIn extends Component {
               onChangeText={this.handlePasswordChange}
               showCheckmark={validPassword}
               placeholder="Password"
-              autoFocus
             />
+            <SquareButton />
           </ScrollView>
         </View>
       </KeyboardAvoidingView>

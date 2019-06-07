@@ -55,6 +55,7 @@ class InputField extends Component {
           keyboardType={keyboardType}
           secureTextEntry={hideInput}
           onChangeText={this.onChangeText}
+          selectionColor={"#37966F"}
         />
       </View>
     );
