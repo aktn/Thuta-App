@@ -5,6 +5,7 @@ import SearchBar from "./src/components/screens/search/SearchBar";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
 import ArticlesDetail from "./src/components/screens/articles/articlesDetail/ArticlesDetail";
+import LogIn from "./src/components/screens/login/Login";
 
 const MainNavigator = createStackNavigator(
   {
@@ -26,10 +27,16 @@ const MainNavigator = createStackNavigator(
         title: "Details",
         headerVisible: true
       }
+    },
+    LogInScreen: {
+      screen: LogIn,
+      navigationOptions: {
+        header: null
+      }
     }
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "LogInScreen",
     defaultNavigationOptions: {
       // header: null
     }

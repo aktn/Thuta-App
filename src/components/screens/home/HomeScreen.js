@@ -5,6 +5,7 @@ import Slide from "../../common/slider/Slider";
 import CategoriesList from "../../common/categories/CategoriesList";
 import ArticlesList from "../../common/articles/ArticlesList";
 import TopPicks from "../../common/topPicks/TopPicks";
+import InputField from "../../common/form/InputField";
 
 export default class HomeScreen extends React.Component {
   render() {
@@ -13,6 +14,7 @@ export default class HomeScreen extends React.Component {
       <ScrollView style={styles.container}>
         <Header navigation={this.props.navigation} />
         <Slide />
+        <InputField inputType="email" />
         <CategoriesList />
         <ArticlesList navigation={this.props.navigation} />
         <TopPicks />
