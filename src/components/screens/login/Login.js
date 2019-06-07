@@ -23,7 +23,42 @@ class LogIn extends Component {
     };
   }
 
-  handleEmailChange(email) {}
+  handleEmailChange = emailAddress => {
+    const validateEmailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const { validEmail } = this.state;
+
+    if (!validEmail) {
+      if (validateEmailRegex.test(emailAddress)) {
+        this.setState({ validEmail: true });
+      } else if (!validateEmailRegex.test(emailAddress)) {
+        this.setState({ validEmail: false });
+      }
+    }
+    this.setState({ emailAddress });
+  };
+
+  handlePasswordChange = password => {
+    const { validPassword } = this.state;
+    if (!validPassword) {
+      if (password.length > 4) {
+        this.setState({ validPassword: true });
+      } else if (password.length <= 4) {
+        this.setState({ validPassword: false });
+      }
+    }
+    this.setState({ password });
+  };
+
+  /*
+   * Disable the button if the fields are invalid
+   */
+  toggleButtonState = () => {
+    const { validEmail, validPassword } = this.state;
+    if (validEmail && validPassword) {
+      return false;
+    }
+    return true;
+  };
 
   render() {
     const { formIsValid, loading, validEmail, validPassword } = this.state;
@@ -49,7 +84,7 @@ class LogIn extends Component {
               showCheckmark={validPassword}
               placeholder="Password"
             />
-            <SquareButton />
+            <SquareButton disabled={this.toggleButtonState()} />
           </ScrollView>
         </View>
       </KeyboardAvoidingView>

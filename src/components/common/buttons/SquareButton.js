@@ -4,7 +4,7 @@ import { TouchableHighlight, StyleSheet, Text, View } from "react-native";
 class SquareButton extends Component {
   render() {
     const { disabled, handleNextButton } = this.props;
-    const opacityStyle = disabled ? 0.2 : 0.6;
+    const opacityStyle = disabled ? 0.8 : 1;
     return (
       <View style={{ paddingTop: 25 }}>
         <TouchableHighlight

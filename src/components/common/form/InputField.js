@@ -19,14 +19,14 @@ class InputField extends Component {
     };
   }
 
-  showPassword() {
+  showPassword = () => {
     this.setState({ hideInput: !this.state.hideInput });
-  }
+  };
 
-  onChangeText(value) {
+  onChangeText = value => {
     this.props.onChangeText(value);
     this.setState({ inputValue: value });
-  }
+  };
 
   render() {
     const { inputType, placeholder, autoFocus, onChangeText } = this.props;
@@ -49,9 +49,11 @@ class InputField extends Component {
         <TextInput
           style={styles.inputField}
           placeholder={placeholder}
+          placeholderTextColor={"#a4a5a4"}
           value={inputValue}
           autoCorrect={false}
           autoFocus={autoFocus}
+          autoComplete={false}
           keyboardType={keyboardType}
           secureTextEntry={hideInput}
           onChangeText={this.onChangeText}
@@ -76,7 +78,8 @@ const styles = StyleSheet.create({
   },
   showButton: {
     position: "absolute",
-    right: 0
+    right: 0,
+    zIndex: 2
   },
   showhiddenText: {
     fontWeight: "700"
