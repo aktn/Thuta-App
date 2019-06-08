@@ -15,19 +15,19 @@ const categories = [
     color: "#edcdc5"
   },
   {
-    name: "Psychology",
+    name: "Economics",
     color: "#eab3c6"
   },
   {
-    name: "Psychology",
+    name: "Politics",
     color: "#bae6b3"
   },
   {
-    name: "Psychology",
+    name: "History",
     color: "#eab3c6"
   },
   {
-    name: "Psychology",
+    name: "Science",
     color: "#bae6b3"
   }
 ];
@@ -41,7 +41,7 @@ class CategoriesList extends Component {
     return (
       <View style={[styles.horizontal, { backgroundColor: category.color }]}>
         <Icon name="globe" style={styles.icon} size={30} color="grey" />
-        <Text style={styles.text}>{category.name}</Text>
+        <Text style={styles.categoryTxt}>{category.name}</Text>
       </View>
     );
   }
@@ -78,8 +78,8 @@ const styles = StyleSheet.create({
     paddingVertical: 20,
     paddingHorizontal: 10
   },
-  text: {
-    fontSize: 24,
+  categoryTxt: {
+    fontSize: 25,
     position: "absolute",
     bottom: -5,
     right: 1,

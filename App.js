@@ -36,10 +36,24 @@ const MainNavigator = createStackNavigator(
     }
   },
   {
-    initialRouteName: "LogInScreen",
+    initialRouteName: "Home",
     defaultNavigationOptions: {
       // header: null
     }
+  }
+);
+
+const AuthNavigator = createStackNavigator(
+  {
+    Login: {
+      screen: LogIn,
+      navigationOptions: {
+        header: null
+      }
+    }
+  },
+  {
+    initialRouteName: "Login"
   }
 );
 
@@ -67,7 +81,7 @@ const BottomTabNavigator = createBottomTabNavigator(
       }
     },
     Account: {
-      screen: MainNavigator,
+      screen: AuthNavigator,
       navigationOptions: {
         tabBarLabel: "Account",
         tabBarIcon: CustomTabBarIcon("user", 22)

@@ -5,6 +5,7 @@ import {
   FlatList,
   Image,
   Text,
+  View,
   TouchableHighlight
 } from "react-native";
 
@@ -55,20 +56,37 @@ class ArticlesList extends Component {
 
   _renderArticles(article) {
     return (
-      <TouchableHighlight
-        onPress={() =>
-          this.props.navigation.navigate("Details", { article: article })
-        }
-      >
-        <Image style={styles.horizontal} source={{ uri: article.image }} />
-      </TouchableHighlight>
+      <View>
+        <TouchableHighlight
+          onPress={() =>
+            this.props.navigation.navigate("Details", { article: article })
+          }
+        >
+          <Image style={styles.horizontal} source={{ uri: article.image }} />
+        </TouchableHighlight>
+        <Text
+          style={{
+            position: "absolute",
+            top: 2,
+            right: 5,
+            height: 25,
+            padding: 4,
+            backgroundColor: "#rgba(255, 255, 255, 0.5)"
+          }}
+        >
+          History
+        </Text>
+        <Text style={styles.title}>
+          “Hedging Against The Apocalypse” by Jesse Barron.
+        </Text>
+      </View>
     );
   }
 
   render() {
     return (
-      <ScrollView>
-        <Text style={styles.text}>New</Text>
+      <ScrollView style={styles.container}>
+        <Text style={styles.heading}>New.</Text>
         <FlatList
           horizontal
           style={{ marginHorizontal: 5 }}
@@ -85,13 +103,22 @@ const styles = StyleSheet.create({
   horizontal: {
     width: 160,
     height: 220,
-    margin: 5
+    marginBottom: 5,
+    marginRight: 10
   },
-  text: {
-    color: "black",
-    fontSize: 20,
+  heading: {
+    color: "#FD5523",
+    fontSize: 25,
+    fontWeight: "600",
     paddingVertical: 20,
     paddingHorizontal: 10
+  },
+  container: {
+    margin: 5
+  },
+  title: {
+    fontSize: 14,
+    width: 160
   }
 });
 export default ArticlesList;
