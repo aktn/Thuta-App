@@ -12,38 +12,45 @@ import {
 const articles = [
   {
     key: 1,
-    title: "Suits",
+    title: "How to Talk To Your Children s Will Listen to you",
+    category: "History",
     image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/0/2432.jpg",
+      "https://static.tvmaze.com/uploads/images/original_untouched/111/277940.jpg",
     description:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum."
   },
   {
     key: 2,
-    title: "Modern Family",
-    image: "https://static.tvmaze.com/uploads/images/medium_portrait/0/628.jpg"
+    title: "The 7 Habits of Highly Effective People",
+    category: "Personal Growth",
+    image:
+      "https://static.tvmaze.com/uploads/images/original_untouched/64/162402.jpg"
   },
   {
     key: 3,
     title: "The Flash",
+    category: "Science",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/78/195988.jpg"
   },
   {
     key: 4,
     title: "Supergirl",
+    category: "Health & Fitness",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/83/209955.jpg"
   },
   {
     key: 5,
     title: "Designated Survivor",
+    category: "Science",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/101/253490.jpg"
   },
   {
     key: 6,
     title: "24: Legacy",
+    category: "Psychology",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/90/225030.jpg"
   }
@@ -74,10 +81,10 @@ class ArticlesList extends Component {
             backgroundColor: "#rgba(255, 255, 255, 0.5)"
           }}
         >
-          History
+          {article.category}
         </Text>
-        <Text style={styles.title}>
-          “Hedging Against The Apocalypse” by Jesse Barron.
+        <Text numberOfLines={3} style={styles.articleTitle}>
+          {article.title}
         </Text>
       </View>
     );
@@ -86,7 +93,10 @@ class ArticlesList extends Component {
   render() {
     return (
       <ScrollView style={styles.container}>
-        <Text style={styles.heading}>New.</Text>
+        <View>
+          <Text style={styles.heading}>New.</Text>
+          <Text style={styles.viewMore}>More</Text>
+        </View>
         <FlatList
           horizontal
           style={{ marginHorizontal: 5 }}
@@ -116,9 +126,16 @@ const styles = StyleSheet.create({
   container: {
     margin: 5
   },
-  title: {
+  articleTitle: {
     fontSize: 14,
-    width: 160
+    width: 160,
+    fontWeight: "400"
+  },
+  viewMore: {
+    position: "absolute",
+    right: 1,
+    top: 30,
+    color: "#37966F"
   }
 });
 export default ArticlesList;

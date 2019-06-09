@@ -1,34 +1,32 @@
 import React, { Component } from "react";
-import {
-  ScrollView,
-  Image,
-  StyleSheet,
-  FlatList,
-  View,
-  Text
-} from "react-native";
+import { StyleSheet, FlatList, View, Text } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const categories = [
   {
-    name: "Psychology",
-    color: "#edcdc5"
+    name: "Science",
+    color: "#bae6b3",
+    icon: "rocket"
   },
   {
     name: "Economics",
-    color: "#eab3c6"
+    color: "#eab3c6",
+    icon: "institution"
   },
   {
-    name: "Politics",
-    color: "#bae6b3"
+    name: "Fitness",
+    color: "#bae6b3",
+    icon: "plus-square"
+  },
+  {
+    name: "Psychology",
+    color: "#edcdc5",
+    icon: "globe"
   },
   {
     name: "History",
-    color: "#eab3c6"
-  },
-  {
-    name: "Science",
-    color: "#bae6b3"
+    color: "#eab3c6",
+    icon: "area-chart"
   }
 ];
 
@@ -40,7 +38,7 @@ class CategoriesList extends Component {
   _renderCategories(category) {
     return (
       <View style={[styles.horizontal, { backgroundColor: category.color }]}>
-        <Icon name="globe" style={styles.icon} size={40} color="grey" />
+        <Icon name={category.icon} style={styles.icon} size={40} color="grey" />
         <Text style={styles.categoryTxt}>{category.name}</Text>
       </View>
     );

@@ -4,11 +4,11 @@ import { TouchableHighlight, StyleSheet, Text, View } from "react-native";
 class SquareButton extends Component {
   render() {
     const { disabled, handleNextButton } = this.props;
-    const opacityStyle = disabled ? 0.8 : 1;
+    //const opacityStyle = disabled ? 0.8 : 1;
     return (
       <View style={{ paddingTop: 25 }}>
         <TouchableHighlight
-          style={{ opacity: opacityStyle }}
+          //style={{ opacity: opacityStyle }}
           onPress={handleNextButton}
           disabled={disabled}
         >

@@ -5,7 +5,7 @@ import Swiper from "react-native-swiper";
 const Slider = props => (
   <View style={styles.slider}>
     <View style={styles.container}>
-      <Text style={styles.title}>Some Text in Column One</Text>
+      <Text style={styles.title}>{props.content}</Text>
     </View>
     <Image
       style={[styles.container, styles.image]}
@@ -43,17 +43,17 @@ export default class extends Component {
     this.state = {
       sliders: [
         {
-          title: "Hello 1",
+          title: "Some text in slider one",
           image:
             "https://static.tvmaze.com/uploads/images/medium_portrait/0/2432.jpg"
         },
         {
-          title: "Hello 2",
+          title: "Some text in slider two",
           image:
             "https://static.tvmaze.com/uploads/images/medium_portrait/90/225030.jpg"
         },
         {
-          title: "Hello 3",
+          title: "Some text in slider three",
           image:
             "https://static.tvmaze.com/uploads/images/medium_portrait/78/195988.jpg"
         }
@@ -66,7 +66,7 @@ export default class extends Component {
       <View style={styles.container}>
         <Swiper height={240} showsPagination={false} autoplay>
           {this.state.sliders.map((slider, i) => (
-            <Slider uri={slider.image} key={i} />
+            <Slider uri={slider.image} content={slider.title} key={i} />
           ))}
         </Swiper>
       </View>

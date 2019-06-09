@@ -17,35 +17,43 @@ const { width } = Dimensions.get("window");
 const data_list = [
   {
     key: 1,
-    title: "Suits",
-    image: "https://static.tvmaze.com/uploads/images/medium_portrait/0/2432.jpg"
+    title: "How to Talk To Your Children s Will Listen to you",
+    category: "History",
+    image:
+      "https://static.tvmaze.com/uploads/images/original_untouched/111/277940.jpg"
   },
   {
     key: 2,
-    title: "Modern Family",
-    image: "https://static.tvmaze.com/uploads/images/medium_portrait/0/628.jpg"
+    title: "The 7 Habits of Highly Effective People",
+    category: "Personal Growth",
+    image:
+      "https://static.tvmaze.com/uploads/images/original_untouched/64/162402.jpg"
   },
   {
     key: 3,
-    title: "The Flash",
+    title: "The Laws of Human Nature",
+    category: "Science",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/78/195988.jpg"
   },
   {
     key: 4,
-    title: "Supergirl",
+    title: "Say Good Night to Insomnia",
+    category: "Health & Fitness",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/83/209955.jpg"
   },
   {
     key: 5,
-    title: "Designated Survivor",
+    title: "Fail until you don't",
+    category: "Science",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/101/253490.jpg"
   },
   {
     key: 6,
-    title: "24: Legacy",
+    title: "A guide to good life",
+    category: "Psychology",
     image:
       "https://static.tvmaze.com/uploads/images/medium_portrait/90/225030.jpg"
   }
@@ -91,7 +99,7 @@ class SearchBar extends Component {
           />
         </View>
         <View style={styles.searchContent}>
-          <Text style={styles.category}>Category</Text>
+          <Text style={styles.category}>{item.category}</Text>
           <Text style={styles.description}>{item.title}</Text>
         </View>
       </View>
@@ -216,8 +224,11 @@ const styles = StyleSheet.create({
     fontSize: 30
   },
   category: {
-    paddingBottom: 20,
+    paddingBottom: 18,
+    fontSize: 15,
     fontWeight: "700"
   },
-  description: {}
+  description: {
+    fontSize: 16
+  }
 });
