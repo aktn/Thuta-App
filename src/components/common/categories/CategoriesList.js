@@ -40,7 +40,7 @@ class CategoriesList extends Component {
   _renderCategories(category) {
     return (
       <View style={[styles.horizontal, { backgroundColor: category.color }]}>
-        <Icon name="globe" style={styles.icon} size={30} color="grey" />
+        <Icon name="globe" style={styles.icon} size={40} color="grey" />
         <Text style={styles.categoryTxt}>{category.name}</Text>
       </View>
     );
