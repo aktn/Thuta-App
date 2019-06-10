@@ -11,61 +11,30 @@ import {
   FlatList
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { Network_Interface as url } from "../../../config/index";
 
 const { width } = Dimensions.get("window");
-
-const data_list = [
-  {
-    key: 1,
-    title: "How to Talk To Your Children s Will Listen to you",
-    category: "History",
-    image:
-      "https://static.tvmaze.com/uploads/images/original_untouched/111/277940.jpg"
-  },
-  {
-    key: 2,
-    title: "The 7 Habits of Highly Effective People",
-    category: "Personal Growth",
-    image:
-      "https://static.tvmaze.com/uploads/images/original_untouched/64/162402.jpg"
-  },
-  {
-    key: 3,
-    title: "The Laws of Human Nature",
-    category: "Science",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/78/195988.jpg"
-  },
-  {
-    key: 4,
-    title: "Say Good Night to Insomnia",
-    category: "Health & Fitness",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/83/209955.jpg"
-  },
-  {
-    key: 5,
-    title: "Fail until you don't",
-    category: "Science",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/101/253490.jpg"
-  },
-  {
-    key: 6,
-    title: "A guide to good life",
-    category: "Psychology",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/90/225030.jpg"
-  }
-];
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
       textInput: "",
-      items: ""
+      items: "",
+      loading: false
     };
+  }
+
+  componentDidMount() {
+    fetch(url)
+      .then(resp => resp.json())
+      .then(response => {
+        this.setState({
+          items: response,
+          loading: false
+        });
+      })
+      .catch(error => console.log(error));
   }
 
   /**
@@ -74,7 +43,7 @@ class SearchBar extends Component {
    * @return {Filter items}
    */
   filter(input) {
-    const data = data_list.filter(item => {
+    const data = this.state.items.filter(item => {
       const itemData = item.title.toUpperCase();
       const inputData = input.toUpperCase();
       return itemData.indexOf(inputData) > -1;

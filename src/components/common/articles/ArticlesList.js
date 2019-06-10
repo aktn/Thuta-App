@@ -8,57 +8,27 @@ import {
   View,
   TouchableHighlight
 } from "react-native";
-
-const articles = [
-  {
-    key: 1,
-    title: "How to Talk To Your Children s Will Listen to you",
-    category: "History",
-    image:
-      "https://static.tvmaze.com/uploads/images/original_untouched/111/277940.jpg",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi ratione architecto necessitatibus cum praesentium dolor totam voluptatibus recusandae? Illo quod nemo ratione itaque dolores laudantium error vero laborum blanditiis nostrum."
-  },
-  {
-    key: 2,
-    title: "The 7 Habits of Highly Effective People",
-    category: "Personal Growth",
-    image:
-      "https://static.tvmaze.com/uploads/images/original_untouched/64/162402.jpg"
-  },
-  {
-    key: 3,
-    title: "The Flash",
-    category: "Science",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/78/195988.jpg"
-  },
-  {
-    key: 4,
-    title: "Supergirl",
-    category: "Health & Fitness",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/83/209955.jpg"
-  },
-  {
-    key: 5,
-    title: "Designated Survivor",
-    category: "Science",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/101/253490.jpg"
-  },
-  {
-    key: 6,
-    title: "24: Legacy",
-    category: "Psychology",
-    image:
-      "https://static.tvmaze.com/uploads/images/medium_portrait/90/225030.jpg"
-  }
-];
+import { Network_Interface as url } from "../../../config/index";
 
 class ArticlesList extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      articles: [],
+      loading: false
+    };
+  }
+
+  componentDidMount() {
+    fetch(url)
+      .then(resp => resp.json())
+      .then(response => {
+        this.setState({
+          articles: response,
+          loading: false
+        });
+      })
+      .catch(error => console.log(error));
   }
 
   _renderArticles(article) {
@@ -100,7 +70,7 @@ class ArticlesList extends Component {
         <FlatList
           horizontal
           style={{ marginHorizontal: 5 }}
-          data={articles}
+          data={this.state.articles}
           renderItem={({ item }) => this._renderArticles(item)}
           keyExtractor={(item, index) => index.toString()}
         />
