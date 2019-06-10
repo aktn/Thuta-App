@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import ArticlesDetail from "../screens/articles/articlesDetail/ArticlesDetail";
 import LogIn from "../screens/login/Login";
 import HomeScreen from "../screens/home/HomeScreen";
+import FavoritesScreen from "../screens/favorites/FavoritesScreen";
 
 const MainNavigator = createStackNavigator(
   {
@@ -27,12 +28,6 @@ const MainNavigator = createStackNavigator(
         title: "Details",
         headerVisible: true
       }
-    },
-    LogInScreen: {
-      screen: LogIn,
-      navigationOptions: {
-        header: null
-      }
     }
   },
   {
@@ -40,6 +35,20 @@ const MainNavigator = createStackNavigator(
     defaultNavigationOptions: {
       // header: null
     }
+  }
+);
+
+const FavoritesNavigator = createStackNavigator(
+  {
+    Favorites: {
+      screen: FavoritesScreen,
+      navigationOptions: {
+        header: null
+      }
+    }
+  },
+  {
+    initialRouteName: "Favorites"
   }
 );
 
@@ -74,7 +83,7 @@ const BottomTabNavigator = createBottomTabNavigator(
       }
     },
     Library: {
-      screen: MainNavigator,
+      screen: FavoritesNavigator,
       navigationOptions: {
         tabBarLabel: "Library",
         tabBarIcon: CustomTabBarIcon("book", 22)
