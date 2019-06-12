@@ -13,7 +13,8 @@ const MainNavigator = createStackNavigator(
     Home: {
       screen: HomeScreen,
       navigationOptions: {
-        header: null
+        header: null,
+        headerBackTitle: null,
       }
     },
     Search: {
@@ -25,15 +26,22 @@ const MainNavigator = createStackNavigator(
     Details: {
       screen: ArticlesDetail,
       navigationOptions: {
-        title: "Details",
-        headerVisible: true
+        title: "",
+        headerBackTitle: null,
+        headerTintColor: '#37966F',
+        headerStyle: {
+          backgroundColor: '#fffbe6',
+          borderBottomWidth: 0,
+          marginLeft: 10
+        }
       }
     }
   },
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {
-      // header: null
+       //header: null,
+       
     }
   }
 );

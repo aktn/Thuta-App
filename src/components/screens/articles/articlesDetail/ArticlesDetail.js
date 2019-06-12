@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 //import Orientation from "react-native-orientation";
-import { View, Text, StyleSheet, Image, Dimensions } from "react-native";
+import { View, Text, StyleSheet, Button, Dimensions } from "react-native";
+//import Icon from "react-native-vector-icons/FontAwesome";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const { width, height } = Dimensions.get("window");
 
@@ -14,35 +16,60 @@ class ArticlesDetail extends Component {
     // Orientation.lockToPortrait();
   }
 
-  renderThumbnail() {
-    // const imagePath = require("../../../images/");
-  }
-
   render() {
     const { navigation } = this.props;
     const article = navigation.getParam("article", "Article");
 
     return (
-      <View style={{ flex: 1 }}>
-        <Image style={styles.thumbnail} source={{ uri: article.image }} />
-        <View>
-          <Text style={styles.articleTitle}>
-            {JSON.stringify(article.title)}
-          </Text>
-          <Text style={styles.articleDescription}>{article.description}</Text>
+      <View style={styles.container}>
+        <Text style={styles.articleTitle}>{JSON.stringify(article.title)}</Text>
+        <View style={styles.btnWrapper}>
+          <View style={styles.btnIcon}>
+            <Icon
+              name="md-heart"
+              style={styles.svgIcon}
+              size={25}
+              color="grey"
+            />
+            <Text style={styles.iconText}>Favorite</Text>
+          </View>
+          <View style={styles.btnIcon}>
+            <Icon
+              name="ios-book"
+              style={styles.svgIcon}
+              size={25}
+              color="grey"
+            />
+            <Text style={styles.iconText}>Read</Text>
+          </View>
+          <View style={styles.btnIcon}>
+            <Icon
+              name="md-share"
+              style={styles.svgIcon}
+              size={25}
+              color="grey"
+            />
+            <Text style={styles.iconText}>Share</Text>
+          </View>
         </View>
+        <Text style={styles.articleDescription}>{article.description}</Text>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    backgroundColor: "#fffbe6",
+    display: "flex",
+    flex: 1
+  },
   thumbnail: {
     width: width,
     height: 300
   },
   articleTitle: {
-    fontSize: 50,
+    fontSize: 40,
     color: "#FD5523",
     paddingLeft: 10,
     paddingVertical: 20
@@ -51,6 +78,33 @@ const styles = StyleSheet.create({
     fontSize: 18,
     paddingLeft: 10,
     letterSpacing: 3
+  },
+  btnWrapper: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    borderBottomColor: "#37966F",
+    borderBottomWidth: 1,
+    borderTopColor: "#37966F",
+    borderTopWidth: 1,
+    padding: 10,
+    margin: 20,
+    alignContent: "center",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  btnIcon: {
+    flex: 1,
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: 10
+  },
+  svgIcon: {
+    height: 30
+  },
+  iconText: {
+    fontSize: 12
   }
 });
 
