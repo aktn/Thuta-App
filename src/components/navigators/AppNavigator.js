@@ -7,6 +7,7 @@ import ArticlesDetail from "../screens/articles/articlesDetail/ArticlesDetail";
 import LogIn from "../screens/login/Login";
 import HomeScreen from "../screens/home/HomeScreen";
 import FavoritesScreen from "../screens/favorites/FavoritesScreen";
+import ArticleContents from "../screens/articles/articleContents/ArticleContents";
 
 const MainNavigator = createStackNavigator(
   {
@@ -14,7 +15,7 @@ const MainNavigator = createStackNavigator(
       screen: HomeScreen,
       navigationOptions: {
         header: null,
-        headerBackTitle: null,
+        headerBackTitle: null
       }
     },
     Search: {
@@ -28,9 +29,22 @@ const MainNavigator = createStackNavigator(
       navigationOptions: {
         title: "",
         headerBackTitle: null,
-        headerTintColor: '#37966F',
+        headerTintColor: "#37966F",
         headerStyle: {
-          backgroundColor: '#fffbe6',
+          backgroundColor: "#fffbe6",
+          borderBottomWidth: 0,
+          marginLeft: 10
+        }
+      }
+    },
+    Contents: {
+      screen: ArticleContents,
+      navigationOptions: {
+        title: "",
+        headerBackTitle: null,
+        headerTintColor: "#37966F",
+        headerStyle: {
+          backgroundColor: "#fffbe6",
           borderBottomWidth: 0,
           marginLeft: 10
         }
@@ -40,8 +54,7 @@ const MainNavigator = createStackNavigator(
   {
     initialRouteName: "Home",
     defaultNavigationOptions: {
-       //header: null,
-       
+      //header: null,
     }
   }
 );

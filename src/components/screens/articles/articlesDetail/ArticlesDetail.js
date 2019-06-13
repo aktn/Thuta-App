@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 //import Orientation from "react-native-orientation";
-import { View, Text, StyleSheet, Button, Dimensions } from "react-native";
-//import Icon from "react-native-vector-icons/FontAwesome";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TouchableHighlight,
+  Dimensions
+} from "react-native";
 import Icon from "react-native-vector-icons/Ionicons";
 
 const { width, height } = Dimensions.get("window");
@@ -33,15 +38,20 @@ class ArticlesDetail extends Component {
             />
             <Text style={styles.iconText}>Favorite</Text>
           </View>
-          <View style={styles.btnIcon}>
-            <Icon
-              name="ios-book"
-              style={styles.svgIcon}
-              size={25}
-              color="grey"
-            />
-            <Text style={styles.iconText}>Read</Text>
-          </View>
+          <TouchableHighlight
+            underlayColor="#ffffff00"
+            onPress={() => this.props.navigation.navigate("Contents")}
+          >
+            <View>
+              <Icon
+                name="ios-book"
+                style={styles.svgIcon}
+                size={25}
+                color="grey"
+              />
+              <Text style={styles.iconText}>Read</Text>
+            </View>
+          </TouchableHighlight>
           <View style={styles.btnIcon}>
             <Icon
               name="md-share"
