@@ -11,7 +11,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 const { width, height } = Dimensions.get("window");
 
-class ArticlesDetail extends Component {
+class ArticlesSummary extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ArticlesDetail;
+export default ArticlesSummary;

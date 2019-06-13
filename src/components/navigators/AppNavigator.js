@@ -3,7 +3,7 @@ import { createStackNavigator } from "react-navigation";
 import SearchBar from "../screens/search/SearchBar";
 import { createBottomTabNavigator, BottomTabBar } from "react-navigation-tabs";
 import Icon from "react-native-vector-icons/FontAwesome";
-import ArticlesDetail from "../screens/articles/articlesDetail/ArticlesDetail";
+import ArticlesSummary from "../screens/articles/articlesSummary/ArticlesSummary";
 import LogIn from "../screens/login/Login";
 import HomeScreen from "../screens/home/HomeScreen";
 import FavoritesScreen from "../screens/favorites/FavoritesScreen";
@@ -24,8 +24,8 @@ const MainNavigator = createStackNavigator(
         header: null
       }
     },
-    Details: {
-      screen: ArticlesDetail,
+    Summary: {
+      screen: ArticlesSummary,
       navigationOptions: {
         title: "",
         headerBackTitle: null,

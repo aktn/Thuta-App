@@ -36,7 +36,7 @@ class ArticlesList extends Component {
       <View>
         <TouchableHighlight
           onPress={() =>
-            this.props.navigation.navigate("Details", { article: article })
+            this.props.navigation.navigate("Summary", { article: article })
           }
         >
           <Image style={styles.horizontal} source={{ uri: article.image }} />
