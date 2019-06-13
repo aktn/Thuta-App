@@ -68,17 +68,22 @@ const styles = StyleSheet.create({
   },
   contentList: {
     paddingVertical: 20,
-    paddingHorizontal: 10,
-    flexWrap: "wrap",
+    marginHorizontal: 10,
     flexDirection: "row",
-    alignItems: "flex-start"
+    alignItems: "flex-start",
+    borderBottomWidth: 0.5,
+    borderColor: "#828282"
   },
   contentPart: {
     fontSize: 18,
-    paddingRight: 10
+    paddingRight: 10,
+    lineHeight: 30
   },
   contentName: {
-    fontSize: 18
+    fontSize: 18,
+    letterSpacing: 1.5,
+    paddingRight: 14,
+    lineHeight: 30
   }
 });
 
