@@ -6,86 +6,57 @@ class ArticleDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [],
-      pages: ["2", "3", "4"],
-      key: 1
+      currentPart: 0
     };
   }
 
-  componentDidMount() {
-    this.fetchData();
-  }
-
-  fetchData = async () => {
-    const { navigation } = this.props;
-    const article = navigation.getParam("articleID", "Article");
-
-    // Dummy data request for now
-    const response = await fetch("http://localhost:3001/contents");
-    const products = await response.json();
-    this.setState({ items: products });
-
-    //Article ID to be used later when calling for an API
-    //console.log(articleID);
-  };
-
-  // Return the item of array
+  // Return the item of array for sliding
   _renderItem(item, index) {
-    const itemInt = parseInt(item);
-
-    const style = itemInt % 2 == 0 ? styles.slide1 : styles.slide2;
     return (
-      <View style={style} key={index}>
-        <Text style={styles.text}>{item.title}</Text>
+      <View style={styles.slide} key={index}>
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.section}>{item.section}</Text>
       </View>
     );
   }
 
-  // onPageChanged(index) {
-  //   if (index == 2) {
-  //     const newPages = this.state.pages.map(i => (parseInt(i) + 1).toString());
-  //     this.setState({ pages: newPages, key: (this.state.key + 1) % 2 });
-  //   } else if (index == 0) {
-  //     const newPages = this.state.pages.map(i => (parseInt(i) - 1).toString());
-  //     this.setState({ pages: newPages, key: (this.state.key + 1) % 2 });
-  //   }
-  // }
-
   render() {
-    // const { navigation } = this.props;
-    // const article = navigation.getParam("article", "Article");
+    const { navigation } = this.props;
+    const index = navigation.getParam("index", "0");
+    const contents = navigation.getParam("contents", [
+      "Oops.. something went wrong :("
+    ]);
+
     return (
       <Swiper
-        index={0}
+        index={index}
         style={styles.wrapper}
         loop={false}
         showsPagination={false}
-        // onIndexChanged={index => this.onPageChanged(index)}
       >
-        {this.state.items.map((item, index) => this._renderItem(item, index))}
+        {contents.map((item, index) => this._renderItem(item, index))}
       </Swiper>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {},
-  slide1: {
+  slide: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#9DD6EB"
+    backgroundColor: "#fffbe6",
+    paddingHorizontal: 20,
+    paddingVertical: 60
   },
-  slide2: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#97CAE5"
-  },
-  text: {
-    color: "#fff",
+  title: {
+    color: "#FD5523",
     fontSize: 30,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    lineHeight: 45,
+    paddingBottom: 30
+  },
+  section: {
+    fontSize: 20,
+    lineHeight: 35
   }
 });
 
