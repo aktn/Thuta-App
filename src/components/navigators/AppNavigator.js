@@ -67,6 +67,16 @@ const MainNavigator = createStackNavigator(
   }
 );
 
+MainNavigator.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+  if (navigation.state.index > 1) {
+    tabBarVisible = false;
+  }
+  return {
+    tabBarVisible
+  };
+};
+
 const FavoritesNavigator = createStackNavigator(
   {
     Favorites: {
