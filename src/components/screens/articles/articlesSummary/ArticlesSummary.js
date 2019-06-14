@@ -40,7 +40,11 @@ class ArticlesSummary extends Component {
           </View>
           <TouchableHighlight
             underlayColor="#ffffff00"
-            onPress={() => this.props.navigation.navigate("Contents")}
+            onPress={() => {
+              this.props.navigation.navigate("Details", {
+                articleID: article.key
+              });
+            }}
           >
             <View>
               <Icon

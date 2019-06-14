@@ -8,6 +8,7 @@ import LogIn from "../screens/login/Login";
 import HomeScreen from "../screens/home/HomeScreen";
 import FavoritesScreen from "../screens/favorites/FavoritesScreen";
 import ArticleContents from "../screens/articles/articleContents/ArticleContents";
+import ArticleDetails from "../screens/articles/articleDetails/ArticleDetails";
 
 const MainNavigator = createStackNavigator(
   {
@@ -48,6 +49,13 @@ const MainNavigator = createStackNavigator(
           borderBottomWidth: 0,
           marginLeft: 10
         }
+      }
+    },
+    Details: {
+      screen: ArticleDetails,
+      navigationOptions: {
+        header: null,
+        tabBarVisible: false
       }
     }
   },

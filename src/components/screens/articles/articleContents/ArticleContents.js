@@ -29,7 +29,7 @@ class ArticleContents extends Component {
       <TouchableHighlight
         underlayColor="#ffffff00"
         onPress={() =>
-          this.props.navigation.navigate("Details", { content: content })
+          this.props.navigation.navigate("Details", { article: content })
         }
       >
         <View style={styles.contentList}>
