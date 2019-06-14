@@ -42,6 +42,7 @@ class ArticlesSummary extends Component {
             underlayColor="#ffffff00"
             onPress={() => {
               this.props.navigation.navigate("Contents", {
+                transition: "collapseExpand",
                 articleID: article.key
               });
             }}
