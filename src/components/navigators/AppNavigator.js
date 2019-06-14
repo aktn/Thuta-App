@@ -10,6 +10,8 @@ import FavoritesScreen from "../screens/favorites/FavoritesScreen";
 import ArticleContents from "../screens/articles/articleContents/ArticleContents";
 import ArticleDetails from "../screens/articles/articleDetails/ArticleDetails";
 import { Animated, Easing, Platform } from "react-native";
+import OcticonsIcon from "react-native-vector-icons/Octicons";
+import EvilIcon from "react-native-vector-icons/EvilIcons";
 
 // collapse and expand effects when being activated
 let expandScreen = (index, position) => {
@@ -98,7 +100,17 @@ const MainNavigator = createStackNavigator(
     },
     Contents: {
       screen: ArticleContents,
-      navigationOptions: {
+      navigationOptions: ({ navigation }) => ({
+        headerLeft: () => (
+          <EvilIcon
+            name={"close"}
+            size={35}
+            color={"#37966F"}
+            onPress={() => {
+              navigation.goBack();
+            }}
+          />
+        ),
         title: "",
         headerBackTitle: null,
         headerTintColor: "#37966F",
@@ -107,7 +119,7 @@ const MainNavigator = createStackNavigator(
           borderBottomWidth: 0,
           marginLeft: 10
         }
-      }
+      })
     },
     Details: {
       screen: ArticleDetails,
@@ -178,21 +190,21 @@ const BottomTabNavigator = createBottomTabNavigator(
       screen: MainNavigator,
       navigationOptions: {
         tabBarLabel: "Discover",
-        tabBarIcon: CustomTabBarIcon("globe", 22)
+        tabBarIcon: CustomTabBarIcon("globe", 20)
       }
     },
     Library: {
       screen: FavoritesNavigator,
       navigationOptions: {
         tabBarLabel: "Library",
-        tabBarIcon: CustomTabBarIcon("book", 22)
+        tabBarIcon: CustomTabBarIcon("heart-o", 20)
       }
     },
     Account: {
       screen: AuthNavigator,
       navigationOptions: {
         tabBarLabel: "Account",
-        tabBarIcon: CustomTabBarIcon("user", 22)
+        tabBarIcon: CustomTabBarIcon("user-o", 20)
       }
     }
   },
