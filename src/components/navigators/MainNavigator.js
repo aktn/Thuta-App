@@ -6,6 +6,7 @@ import ArticleDetails from "../screens/articles/articleDetails/ArticleDetails";
 import { Animated, Easing, Platform } from "react-native";
 import EvilIcon from "react-native-vector-icons/EvilIcons";
 import { createStackNavigator } from "react-navigation";
+import React from "react";
 
 // collapse and expand effects when being activated
 let expandScreen = (index, position) => {
