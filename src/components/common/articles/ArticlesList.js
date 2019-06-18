@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
@@ -9,75 +9,7 @@ import {
   TouchableHighlight
 } from "react-native";
 import { Network_Interface as url } from "../../../config/index";
-
-class ArticlesList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles: [],
-      loading: false
-    };
-  }
-
-  componentDidMount() {
-    fetch(url)
-      .then(resp => resp.json())
-      .then(response => {
-        this.setState({
-          articles: response,
-          loading: false
-        });
-      })
-      .catch(error => console.log(error));
-  }
-
-  _renderArticles(article) {
-    return (
-      <View>
-        <TouchableHighlight
-          onPress={() =>
-            this.props.navigation.navigate("Summary", { article: article })
-          }
-        >
-          <Image style={styles.horizontal} source={{ uri: article.image }} />
-        </TouchableHighlight>
-        <Text
-          style={{
-            position: "absolute",
-            top: 2,
-            right: 5,
-            height: 25,
-            padding: 4,
-            backgroundColor: "#rgba(255, 255, 255, 0.5)"
-          }}
-        >
-          {article.category}
-        </Text>
-        <Text numberOfLines={3} style={styles.articleTitle}>
-          {article.title}
-        </Text>
-      </View>
-    );
-  }
-
-  render() {
-    return (
-      <ScrollView style={styles.container}>
-        <View>
-          <Text style={styles.heading}>New.</Text>
-          <Text style={styles.viewMore}>More</Text>
-        </View>
-        <FlatList
-          horizontal
-          style={{ marginHorizontal: 5 }}
-          data={this.state.articles}
-          renderItem={({ item }) => this._renderArticles(item)}
-          keyExtractor={(item, index) => index.toString()}
-        />
-      </ScrollView>
-    );
-  }
-}
+import axios from "axios";
 
 const styles = StyleSheet.create({
   horizontal: {
@@ -106,6 +38,67 @@ const styles = StyleSheet.create({
     right: 1,
     top: 30,
     color: "#37966F"
+  },
+  categoryTxt: {
+    position: "absolute",
+    top: 2,
+    right: 5,
+    height: 25,
+    padding: 4,
+    backgroundColor: "#rgba(255, 255, 255, 0.5)"
   }
 });
-export default ArticlesList;
+
+const _renderArticles = (article, props) => {
+  return (
+    <View>
+      <TouchableHighlight
+        onPress={() =>
+          props.navigation.navigate("Summary", { article: article })
+        }
+      >
+        <Image style={styles.horizontal} source={{ uri: article.image }} />
+      </TouchableHighlight>
+      <Text style={styles.categoryTxt}>{article.category}</Text>
+      <Text numberOfLines={3} style={styles.articleTitle}>
+        {article.title}
+      </Text>
+    </View>
+  );
+};
+
+const fetchArticles = () => {
+  const [articles, setArticles] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(url);
+      setArticles(result.data);
+    };
+    fetchData();
+  }, [url]);
+
+  return {
+    articles
+  };
+};
+
+export default (ArticlesList = props => {
+  const { articles } = fetchArticles();
+
+  return (
+    <ScrollView style={styles.container}>
+      <View>
+        <Text style={styles.heading}>New.</Text>
+        <Text style={styles.viewMore}>More</Text>
+      </View>
+      <FlatList
+        horizontal
+        style={{ marginHorizontal: 5 }}
+        data={articles}
+        renderItem={({ item }) => _renderArticles(item, { ...props })}
+        keyExtractor={(item, index) => index.toString()}
+      />
+    </ScrollView>
+  );
+});
