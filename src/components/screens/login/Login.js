@@ -8,7 +8,8 @@ import {
 } from "react-native";
 import InputField from "../../common/form/InputField";
 import SquareButton from "../../common/buttons/SquareButton";
-//import { PropTypes } from "prop-types";
+import { PropTypes } from "prop-types";
+import ErrorMessage from "../../common/messages/ErrorMessage";
 
 class LogIn extends Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class LogIn extends Component {
       password: "",
       validEmail: false,
       validPassword: false,
-      formIsValid: false,
+      formIsValid: true,
       loading: false
     };
   }
@@ -47,6 +48,10 @@ class LogIn extends Component {
       }
     }
     this.setState({ password });
+  };
+
+  handleCloseMessage = () => {
+    this.setState({ formIsValid: true });
   };
 
   /*
@@ -85,6 +90,12 @@ class LogIn extends Component {
               placeholder="Password"
             />
             <SquareButton disabled={this.toggleButtonState()} />
+            <ErrorMessage
+              type="error"
+              message="Please check the fields above"
+              displayMessage={displayErrMessage}
+              closeNotification={this.handleCloseMessage}
+            />
           </ScrollView>
         </View>
       </KeyboardAvoidingView>
@@ -92,9 +103,9 @@ class LogIn extends Component {
   }
 }
 
-// Login.propTypes = {
-//   logIn: PropTypes.func.isRequired
-// };
+LogIn.propTypes = {
+  logIn: PropTypes.func.isRequired
+};
 
 const styles = StyleSheet.create({
   wrapper: {
