@@ -22,11 +22,11 @@ class SquareButton extends Component {
 const styles = StyleSheet.create({
   btnText: {
     fontSize: 22,
-    color: "#37966F",
+    color: "#232323",
     width: 100,
     borderWidth: 1,
     padding: 10,
-    borderColor: "#37966F",
+    borderColor: "#232323",
     textAlign: "center"
   }
 });

@@ -55,7 +55,7 @@ class InputField extends Component {
         <TextInput
           style={[
             styles.inputField,
-            { borderBottomColor: !!fieldIsValid ? "#232323" : "#FD5523" }
+            { borderBottomColor: !!fieldIsValid ? "#37966F" : "#FD5523" }
           ]}
           placeholder={placeholder}
           placeholderTextColor={"#a4a5a4"}

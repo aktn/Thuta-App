@@ -26,26 +26,21 @@ class LogIn extends Component {
 
   handleEmailChange = emailAddress => {
     const validateEmailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    const { validEmail } = this.state;
 
-    if (!validEmail) {
-      if (validateEmailRegex.test(emailAddress)) {
-        this.setState({ validEmail: true });
-      } else if (!validateEmailRegex.test(emailAddress)) {
-        this.setState({ validEmail: false });
-      }
+    if (validateEmailRegex.test(emailAddress)) {
+      this.setState({ validEmail: true });
+    } else if (!validateEmailRegex.test(emailAddress)) {
+      this.setState({ validEmail: false });
     }
+
     this.setState({ emailAddress });
   };
 
   handlePasswordChange = password => {
-    const { validPassword } = this.state;
-    if (!validPassword) {
-      if (password.length > 4) {
-        this.setState({ validPassword: true });
-      } else if (password.length <= 4) {
-        this.setState({ validPassword: false });
-      }
+    if (password.length > 4) {
+      this.setState({ validPassword: true });
+    } else if (password.length <= 4) {
+      this.setState({ validPassword: false });
     }
     this.setState({ password });
   };
