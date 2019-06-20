@@ -20,14 +20,14 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     marginBottom: 2,
-    paddingTop: 30
+    paddingTop: 50
   },
   errorMessage: {
     flexDirection: "row",
-    fontSize: 14,
+    fontSize: 18,
     flex: 1,
     marginBottom: 2,
-    color: "red"
+    color: "#FD5523"
   },
   closeButton: {
     position: "absolute",

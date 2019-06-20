@@ -29,7 +29,13 @@ class InputField extends Component {
   };
 
   render() {
-    const { inputType, placeholder, autoFocus, onChangeText } = this.props;
+    const {
+      inputType,
+      placeholder,
+      autoFocus,
+      onChangeText,
+      fieldIsValid
+    } = this.props;
     const { hideInput, inputValue } = this.state;
     const keyboardType = inputType === "email" ? "email-address" : "default";
 
@@ -47,7 +53,10 @@ class InputField extends Component {
         ) : null}
 
         <TextInput
-          style={styles.inputField}
+          style={[
+            styles.inputField,
+            { borderBottomColor: !!fieldIsValid ? "#232323" : "#FD5523" }
+          ]}
           placeholder={placeholder}
           placeholderTextColor={"#a4a5a4"}
           value={inputValue}
@@ -70,7 +79,7 @@ const styles = StyleSheet.create({
   },
   inputField: {
     marginBottom: 40,
-    borderBottomColor: "#232323",
+    //borderBottomColor: "#232323",
     borderBottomWidth: 1,
     paddingTop: 5,
     fontSize: 22,

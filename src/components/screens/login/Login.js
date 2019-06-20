@@ -54,6 +54,23 @@ class LogIn extends Component {
     this.setState({ formIsValid: true });
   };
 
+  handleSubmitButton = () => {
+    //this.setState({ loading: true });
+
+    const { validEmail, validPassword } = this.state;
+    if (validEmail && validPassword) {
+      //send request to backend here
+      console.log("Yay");
+      this.setState({ formIsValid: true, loading: false });
+    } else {
+      console.log("Boo");
+      this.setState({ formIsValid: false, loading: false });
+    }
+    // setTimeout(() => {
+
+    // }, 2000);
+  };
+
   /*
    * Disable the button if the fields are invalid
    */
@@ -80,6 +97,7 @@ class LogIn extends Component {
               onChangeText={this.handleEmailChange}
               showCheckmark={validEmail}
               placeholder="Email Address"
+              fieldIsValid={validEmail}
               autoFocus
             />
             <InputField
@@ -88,8 +106,12 @@ class LogIn extends Component {
               onChangeText={this.handlePasswordChange}
               showCheckmark={validPassword}
               placeholder="Password"
+              fieldIsValid={validPassword}
             />
-            <SquareButton disabled={this.toggleButtonState()} />
+            <SquareButton
+              handleSubmitButton={this.handleSubmitButton}
+              // disabled={this.toggleButtonState()}
+            />
             <ErrorMessage
               type="error"
               message="Please check the fields above"
@@ -103,9 +125,7 @@ class LogIn extends Component {
   }
 }
 
-LogIn.propTypes = {
-  logIn: PropTypes.func.isRequired
-};
+LogIn.propTypes = {};
 
 const styles = StyleSheet.create({
   wrapper: {
