@@ -19,7 +19,7 @@ class ArticleContents extends Component {
           title:
             "What might happen to our communities if driverless cars become a reality",
           section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
+            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history. Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
         },
         {
           part: "2",
