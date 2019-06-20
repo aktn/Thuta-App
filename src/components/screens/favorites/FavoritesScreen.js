@@ -39,7 +39,7 @@ class FavoritesScreen extends Component {
       <View style={styles.favCard}>
         <TouchableHighlight
           onPress={() =>
-            this.props.navigation.navigate("Details", { article: article })
+            this.props.navigation.navigate("Summary", { article: article })
           }
         >
           <Image style={styles.imageCover} source={{ uri: article.image }} />
