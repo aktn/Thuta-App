@@ -1,15 +1,15 @@
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ScrollView,
   StyleSheet,
   FlatList,
-  Image,
   Text,
   View,
   TouchableHighlight
 } from "react-native";
 import { Network_Interface as url } from "../../../config/index";
 import axios from "axios";
+import ProgressiveImage from "../progressiveContents/progressiveImage";
 
 const styles = StyleSheet.create({
   horizontal: {
@@ -57,7 +57,15 @@ const _renderArticles = (article, props) => {
           props.navigation.navigate("Summary", { article: article })
         }
       >
-        <Image style={styles.horizontal} source={{ uri: article.image }} />
+        <ProgressiveImage
+          thumbnailSource={{
+            uri: article.image
+          }}
+          source={{
+            uri: article.image
+          }}
+          style={{ width: 160, height: 220 }}
+        />
       </TouchableHighlight>
       <Text style={styles.categoryTxt}>{article.category}</Text>
       <Text numberOfLines={3} style={styles.articleTitle}>
