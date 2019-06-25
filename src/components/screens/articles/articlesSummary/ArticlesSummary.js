@@ -47,7 +47,7 @@ class ArticlesSummary extends Component {
               });
             }}
           >
-            <View>
+            <View style={styles.btnIcon}>
               <Icon
                 name="ios-book"
                 style={styles.svgIcon}
