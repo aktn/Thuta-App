@@ -6,10 +6,10 @@ import {
   ScrollView,
   StyleSheet
 } from "react-native";
-import InputField from "../../common/form/InputField";
-import SquareButton from "../../common/buttons/SquareButton";
+import InputField from "../../common/form/inputs/InputField";
+import SquareButton from "../../common/form/buttons/SquareButton";
 import { PropTypes } from "prop-types";
-import ErrorMessage from "../../common/messages/ErrorMessage";
+import ErrorMessage from "../../common/form/messages/ErrorMessage";
 
 class LogIn extends Component {
   constructor(props) {
