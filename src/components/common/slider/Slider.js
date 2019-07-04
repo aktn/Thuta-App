@@ -45,12 +45,12 @@ export default class extends Component {
         {
           title: "Some text in slider one",
           image:
-            "https://static.tvmaze.com/uploads/images/medium_portrait/0/2432.jpg"
+            "https://static.tvmaze.com/uploads/images/medium_portrait/196/490638.jpg"
         },
         {
           title: "Some text in slider two",
           image:
-            "https://static.tvmaze.com/uploads/images/medium_portrait/90/225030.jpg"
+            "https://static.tvmaze.com/uploads/images/medium_portrait/2/5109.jpg"
         },
         {
           title: "Some text in slider three",

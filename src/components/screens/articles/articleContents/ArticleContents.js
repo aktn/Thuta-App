@@ -6,6 +6,7 @@ import {
   StyleSheet,
   TouchableHighlight
 } from "react-native";
+import { Contents as url } from "../../../../config";
 
 class ArticleContents extends Component {
   constructor(props) {
@@ -13,48 +14,25 @@ class ArticleContents extends Component {
 
     // Static data for now
     this.state = {
-      contents: [
-        {
-          part: "1",
-          title:
-            "What might happen to our communities if driverless cars become a reality",
-          section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history. Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
-        },
-        {
-          part: "2",
-          title: "How did Artificial Intelligence started",
-          section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
-        },
-        {
-          part: "3",
-          title:
-            "How university campuses have become breeding grounds for intolerance",
-          section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
-        },
-        {
-          part: "4",
-          title: "Another Fake content goes here for now.",
-          section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
-        },
-        {
-          part: "5",
-          title: "Bolin",
-          section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
-        },
-        {
-          part: "6",
-          title: "Jinora",
-          section:
-            "Aang was always able to excel at any new bending moves he learned; at the age of six, he was a better airbender than children twice his age, and by the age of ten, Aang had proven himself to be better than his own teachers. He earned airbending tattoos and the status of an airbending master by the age of twelve for exhibiting prodigious talent with his native element and with his invention of the air scooter, making him the youngest airbending master in Air Nomad history."
-        }
-      ]
+      contents: []
     };
   }
+
+  componentDidMount() {
+    const { navigation } = this.props;
+    const articleID = navigation.getParam("articleID", "ArticleID");
+
+    fetch(url + `?id=` + articleID)
+      .then(resp => resp.json())
+      .then(response => {
+        this.setState({
+          contents: response
+        });
+        console.log(this.state.contents);
+      })
+      .catch(error => console.log(error));
+  }
+
   _renderContents(content, index) {
     return (
       <TouchableHighlight
